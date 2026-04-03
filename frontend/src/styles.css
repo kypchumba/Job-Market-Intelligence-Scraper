@@ -135,7 +135,9 @@ select {
 .primary-button:hover,
 .secondary-button:hover,
 .text-link:hover {
-  transform: translateY(-1px);
+  transform: translateY(-3px);
+  color: rgb(0, 255, 0);
+  background: blue;
 }
 
 .primary-button:disabled {
@@ -283,7 +285,7 @@ select {
   padding: 20px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgb(28, 0, 31);
   min-width: 0;
   overflow: hidden;
 }
@@ -309,15 +311,16 @@ select {
   flex-wrap: wrap;
 }
 
-.job-topline,
-.insight-item {
+.job-topline{
+  color: yellow;
   justify-content: space-between;
   align-items: center;
 }
 
 .job-card h3 {
   margin: 12px 0 8px;
-  font-size: 1.2rem;
+  color:rgb(104, 102, 255);
+  font-size: 1.4rem;
   font-family: "Space Grotesk", sans-serif;
   overflow-wrap: anywhere;
   line-height: 1.35;
@@ -337,7 +340,7 @@ select {
   min-height: 28px;
   padding: 0 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--surface);
 }
 
 .tag-row {
@@ -345,9 +348,12 @@ select {
 }
 
 .text-link {
-  color: #dbc1ff;
+  color: #ddf3dd;
   font-weight: 600;
   overflow-wrap: anywhere;
+  border-radius: 999px;
+  padding: 6px 14px;
+  background-color: var(--accent);
 }
 
 .muted,
@@ -437,14 +443,17 @@ select {
 }
 
 .insight-item {
+  justify-content: space-between;
+  align-items: center;
   padding: 4px 0;
   border: none;
   background: transparent;
   border-radius: 0;
+  color: white;
 }
 
 .insight-item strong {
-  color: #f7d8ff;
+  color: #6469ed;
 }
 
 @media (max-width: 1024px) {

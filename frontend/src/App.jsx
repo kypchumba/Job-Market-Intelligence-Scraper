@@ -43,7 +43,18 @@ export default function App() {
   }, []);
 
   const sourceOptions = useMemo(
-    () => ["remoteok", "weworkremotely", "greenhouse", "lever", "ashby", "careerspage"],
+    () => [
+      "remoteok",
+      "weworkremotely",
+      "greenhouse",
+      "lever",
+      "ashby",
+      "careerspage",
+      "myjobmag",
+      "brightermonday",
+      "corporatestaffing",
+      "fuzu",
+    ],
     []
   );
   const topSource = stats?.sources?.[0]?.source || "n/a";
@@ -85,7 +96,7 @@ export default function App() {
           <p className="eyebrow">Distributed Job Intelligence Platform</p>
           <h1>Track global hiring signals through one real-time dashboard.</h1>
           <p className="hero-copy">
-            Aggregate remote-first and enterprise job feeds, filter opportunity streams, and
+            Aggregate remote-first and enterprise job feeds, filter opportunity streams and
             monitor talent demand from a single operational view.
           </p>
         </div>
@@ -252,7 +263,7 @@ function AnalyticsPanel({ label, items }) {
         <div className={analyticsClassName}>
           {items.map((item) => (
             <div className="insight-item" key={`${label}-${item.label}`}>
-              <span>{item.label}</span>
+              <span>{item.label} </span>
               <strong>{item.count}</strong>
             </div>
           ))}

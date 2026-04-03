@@ -14,7 +14,9 @@ class CareersPageScraper(BaseScraper):
         jobs: list[JobRecord] = []
         errors: list[str] = []
 
-        for page_url in settings.careers_pages:
+        page_urls = [*settings.careers_pages, *settings.ngo_pages]
+
+        for page_url in page_urls:
             try:
                 response = await self.client.get(page_url)
                 response.raise_for_status()

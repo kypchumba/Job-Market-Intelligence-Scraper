@@ -8,7 +8,7 @@ Built with a FastAPI backend and a React dashboard, the platform separates data 
 
 ## Key Features
 
-- Multi-source job aggregation (RemoteOK, WeWorkRemotely, extensible to others)
+- Multi-source job aggregation (RemoteOK, WeWorkRemotely, African boards and extensible careers pages)
 - Real-time scraping with manual trigger support
 - Advanced filtering (keyword, location, job type, source)
 - Deduplicated job storage and normalization
@@ -41,7 +41,11 @@ Current MVP behavior:
 - `Greenhouse`: active scraper using public job board feeds configured by board token
 - `Lever`: active scraper using public postings feeds configured by company slug
 - `Ashby`: active scraper using public hosted job board endpoints configured by board slug
-- `Careers Pages`: active scraper that extracts `JobPosting` JSON-LD from configured company careers pages
+- `Careers Pages`: active scraper that extracts `JobPosting` JSON-LD from configured company, NGO and international-organization careers pages
+- `MyJobMag`: active scraper with heuristic extraction for African market listings
+- `BrighterMonday`: active scraper with heuristic extraction for East African listings
+- `Corporate Staffing Services`: active scraper for Corporate Staffing company postings
+- `Fuzu`: active scraper for marketplace-style African job listings
 
 This keeps the architecture production-oriented while focusing on safer, more reliable job sources than high-risk platforms like LinkedIn or Indeed.
 

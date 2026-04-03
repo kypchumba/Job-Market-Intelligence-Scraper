@@ -5,9 +5,13 @@ from .config import settings
 from .models import JobSource, ScrapeResult
 from .schemas import ScrapeRunResponse
 from .scrapers.ashby_scraper import AshbyScraper
+from .scrapers.brightermonday_scraper import BrighterMondayScraper
 from .scrapers.careerspage_scraper import CareersPageScraper
+from .scrapers.corporatestaffing_scraper import CorporateStaffingScraper
+from .scrapers.fuzu_scraper import FuzuScraper
 from .scrapers.greenhouse_scraper import GreenhouseScraper
 from .scrapers.lever_scraper import LeverScraper
+from .scrapers.myjobmag_scraper import MyJobMagScraper
 from .scrapers.remoteok_scraper import RemoteOKScraper
 from .scrapers.weworkremotely_scraper import WeWorkRemotelyScraper
 from .services.job_store import JobStore
@@ -25,6 +29,10 @@ class ScrapeOrchestrator:
             JobSource.lever: LeverScraper,
             JobSource.ashby: AshbyScraper,
             JobSource.careerspage: CareersPageScraper,
+            JobSource.myjobmag: MyJobMagScraper,
+            JobSource.brightermonday: BrighterMondayScraper,
+            JobSource.corporatestaffing: CorporateStaffingScraper,
+            JobSource.fuzu: FuzuScraper,
         }
 
     async def run(self, sources: list[JobSource] | None = None) -> ScrapeRunResponse:

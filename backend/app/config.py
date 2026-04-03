@@ -24,6 +24,27 @@ class Settings(BaseSettings):
     careers_pages: list[str] = [
         "https://automattic.com/work-with-us/",
         "https://careers.mozilla.org/listings/",
+        "https://www.safaricom.co.ke/about/careers",
+        "https://careers.oldmutual.com/",
+    ]
+    ngo_pages: list[str] = [
+        "https://www.amref.org/work-with-us/",
+        "https://www.brac.net/jobs/",
+        "https://www.care.org/careers/",
+    ]
+    myjobmag_pages: list[str] = [
+        "https://www.myjobmag.co.ke/jobs/",
+        "https://www.myjobmag.com/jobs/",
+    ]
+    brightermonday_pages: list[str] = [
+        "https://www.brightermonday.co.ke/jobs",
+    ]
+    corporatestaffing_pages: list[str] = [
+        "https://www.brightermonday.co.ke/company/corporate-staffing",
+        "https://www.corporatestaffing.co.ke/jobs/",
+    ]
+    fuzu_pages: list[str] = [
+        "https://www.fuzu.com/job",
     ]
     allowed_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
 

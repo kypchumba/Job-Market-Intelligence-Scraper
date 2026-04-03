@@ -11,6 +11,10 @@ class JobSource(str, Enum):
     lever = "lever"
     ashby = "ashby"
     careerspage = "careerspage"
+    myjobmag = "myjobmag"
+    brightermonday = "brightermonday"
+    corporatestaffing = "corporatestaffing"
+    fuzu = "fuzu"
 
 
 class JobRecord(BaseModel):
