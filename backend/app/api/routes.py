@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Query, Request, Response
 
-from ..models import JobSource
+from ..models import ExperienceLevel, JobSource, WorkplaceType
 from ..schemas import JobQueryParams, JobsResponse, ScrapeRunResponse, StatsResponse
 from ..services.dependencies import get_orchestrator, get_scrape_guard, get_store
 from ..services.security import ScrapeGuard, get_client_id, verify_scrape_access
@@ -19,7 +19,12 @@ async def list_jobs(
     keyword: str | None = Query(default=None),
     location: str | None = Query(default=None),
     source: JobSource | None = Query(default=None),
+    company: str | None = Query(default=None),
     job_type: str | None = Query(default=None),
+    workplace_type: WorkplaceType | None = Query(default=None),
+    experience_level: ExperienceLevel | None = Query(default=None),
+    skill: str | None = Query(default=None),
+    offset: int = Query(default=0, ge=0),
     limit: int = Query(default=100, ge=1, le=500),
     store=Depends(get_store),
 ) -> JobsResponse:
@@ -27,11 +32,16 @@ async def list_jobs(
         keyword=keyword,
         location=location,
         source=source,
+        company=company,
         job_type=job_type,
+        workplace_type=workplace_type,
+        experience_level=experience_level,
+        skill=skill,
+        offset=offset,
         limit=limit,
     )
-    items = store.query_jobs(params)
-    return JobsResponse(total=len(items), items=items)
+    total, items = store.query_jobs(params)
+    return JobsResponse(total=total, offset=offset, limit=limit, items=items)
 
 
 @router.post("/scrape/run", response_model=ScrapeRunResponse)
