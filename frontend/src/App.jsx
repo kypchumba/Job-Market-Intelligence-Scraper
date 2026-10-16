@@ -92,12 +92,11 @@ export default function App() {
   return (
     <div className="app-shell">
       <header className="hero">
-        <div>
+        <div className="hero-intro">
           <p className="eyebrow">Distributed Job Intelligence Platform</p>
           <h1>Track global hiring signals through one real-time dashboard.</h1>
           <p className="hero-copy">
-            Aggregate remote-first and enterprise job feeds, filter opportunity streams and
-            monitor talent demand from a single operational view.
+            Aggregate remote-first and enterprise job feeds, filter opportunity streams and monitor talent demand from a single operational view.
           </p>
         </div>
         <div className="hero-actions">
@@ -108,10 +107,10 @@ export default function App() {
             Export CSV
           </a>
         </div>
-      </header>
 
       {error ? <section className="banner error">{error}</section> : null}
-      {lastRun ? <section className="banner success">{lastRun}</section> : null}
+      {lastRun ? <section className="banner success">{lastRun}</section> : null}     
+      </header>
 
       <section className="stats-grid">
         <StatCard label="Tracked Jobs" value={stats?.total_jobs ?? "--"} accent="sun" />
