@@ -1,21 +1,13 @@
 :root {
   color-scheme: dark;
-  --bg: #140c18;
-  --bg-2: #21112b;
-  --surface: rgba(122, 63, 145, 0.22);
-  --surface-strong: rgba(122, 63, 145, 0.42);
-  --panel: rgba(41, 22, 52, 0.92);
-  --panel-soft: rgba(58, 31, 73, 0.82);
-  --border: rgba(214, 183, 228, 0.18);
-  --text: #f5ebfb;
-  --muted: #d2bfdc;
-  --accent: #7a3f91;
-  --accent-2: #9b5bb4;
-  --sun: #f0b64f;
-  --sky: #6e9eff;
-  --mint: #58c9a5;
-  --coral: #ee8b7d;
-  --shadow: 0 28px 80px rgba(4, 0, 10, 0.45);
+  --bg: rgb(0, 0, 0);
+  --surface: rgba(34, 0, 255, 0.25);
+  --panel: rgba(0, 0, 0);
+  --border: rgba(255, 255, 255, 0.481); 
+  --text: rgb(255, 255, 255);
+  --text2: rgba(88, 201, 165, 0.75);
+  --muted: rgb(255, 255, 255, 0.481);
+  --btn: rgb(61, 61, 61);
 }
 
 * {
@@ -27,10 +19,7 @@ body {
   min-width: 320px;
   font-family: "IBM Plex Sans", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(122, 63, 145, 0.48), transparent 28%),
-    radial-gradient(circle at top right, rgba(155, 91, 180, 0.22), transparent 24%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background: var(--bg);
 }
 
 a {
@@ -51,22 +40,27 @@ select {
   overflow-x: clip;
 }
 
-.hero,
-.panel,
-.stat-card,
-.banner {
-  backdrop-filter: blur(18px);
-  background: var(--panel);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.hero {
-  display: grid;
-  gap: 24px;
-  align-items: end;
-  padding: 32px;
-  border-radius: 28px;
+.hero-intro {
+  margin-bottom: 96px;
+}
+
+.hero-actions {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 12px;
+ flex-wrap: wrap;
 }
 
 .eyebrow,
@@ -90,14 +84,16 @@ select {
   line-height: 0.98;
 }
 
-.hero-copy,
 .muted {
+  overflow-wrap: anywhere;
+  word-break: break-word;
   color: var(--muted);
 }
 
 .hero-copy {
-  max-width: 60ch;
-  margin: 16px 0 0;
+  color: var(--muted);
+  max-width: 90%;
+  margin: 48px 0 0;
   font-size: 1.02rem;
   line-height: 1.7;
 }
@@ -117,17 +113,17 @@ select {
   padding: 0 18px;
   border-radius: 999px;
   border: none;
-  transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+  transition: opacity 160ms ease, box-shadow 160ms ease;
   cursor: pointer;
 }
 
 .primary-button {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--btn);
   color: #fff7ff;
 }
 
 .secondary-button {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--btn);
   color: var(--text);
   border: 1px solid var(--border);
 }
@@ -135,9 +131,8 @@ select {
 .primary-button:hover,
 .secondary-button:hover,
 .text-link:hover {
-  transform: translateY(-3px);
-  color: rgb(0, 255, 0);
-  background: blue;
+  color: var(--text2);
+  background: var(--surface);
 }
 
 .primary-button:disabled {
@@ -146,27 +141,27 @@ select {
 }
 
 .banner {
-  margin-top: 18px;
+  margin-top: 48px;
   padding: 14px 18px;
   border-radius: 18px;
 }
 
 .banner.error {
-  border-color: rgba(238, 139, 125, 0.4);
+  color: rgba(238, 138, 125, 0.75);
 }
 
 .banner.success {
-  border-color: rgba(88, 201, 165, 0.36);
+  color: var(--text2);
 }
 
-.stats-grid,
-.content-grid,
-.analytics-row {
+.content-grid {
   display: grid;
   gap: 18px;
 }
 
 .stats-grid {
+  display: grid;
+  gap: 18px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 22px 0;
 }
@@ -174,7 +169,7 @@ select {
 .stat-card {
   padding: 22px;
   border-radius: 22px;
-  background: linear-gradient(145deg, var(--surface), var(--panel-soft));
+  background: var(--surface);
 }
 
 .stat-card p {
@@ -187,26 +182,12 @@ select {
   font-family: "Space Grotesk", sans-serif;
 }
 
-.stat-card.sun {
-  box-shadow: inset 0 0 0 1px rgba(240, 182, 79, 0.18), var(--shadow);
-}
-
-.stat-card.sky {
-  box-shadow: inset 0 0 0 1px rgba(110, 158, 255, 0.18), var(--shadow);
-}
-
-.stat-card.mint {
-  box-shadow: inset 0 0 0 1px rgba(88, 201, 165, 0.18), var(--shadow);
-}
-
-.stat-card.coral {
-  box-shadow: inset 0 0 0 1px rgba(238, 139, 125, 0.18), var(--shadow);
-}
-
 .panel {
-  padding: 24px;
+  padding: 48px;
   border-radius: 24px;
   min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
 }
 
 .panel-head {
@@ -224,7 +205,7 @@ select {
 .filters {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
+  gap: 0.85rem;
 }
 
 .filters input,
@@ -234,8 +215,10 @@ select {
   padding: 0 14px;
   border-radius: 16px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(205, 170, 170, 0.08);
   color: var(--text);
+  transition:
+    border-color 0.25s ease,
 }
 
 .filters select option {
@@ -247,17 +230,26 @@ select {
   color: var(--muted);
 }
 
-.analytics-row,
+.filters input:hover,
+.filters select:hover {
+  border-color: var(--text2);
+}
+
 .content-grid {
   grid-template-columns: 1fr;
 }
 
 .analytics-row {
-  margin-top: 18px;
+  color: var(--text2);
+  margin-top: 96px;
+  margin-bottom: 18px;
+  grid-template-columns: 1fr;
+  display: grid;
+  gap: 18px;
 }
 
 .analytics-panel {
-  background: linear-gradient(180deg, var(--panel) 0%, rgba(47, 25, 58, 0.96) 100%);
+  background: var(--bg);
 }
 
 .analytics-heading {
@@ -319,7 +311,7 @@ select {
 
 .job-card h3 {
   margin: 12px 0 8px;
-  color:rgb(104, 102, 255);
+  color: var(--text2);
   font-size: 1.4rem;
   font-family: "Space Grotesk", sans-serif;
   overflow-wrap: anywhere;
@@ -353,10 +345,9 @@ select {
   overflow-wrap: anywhere;
   border-radius: 999px;
   padding: 6px 14px;
-  background-color: var(--accent);
+  background-color: var(--surface);
 }
 
-.muted,
 .field-value,
 .insight-item span,
 .insight-item strong,
@@ -453,7 +444,7 @@ select {
 }
 
 .insight-item strong {
-  color: #6469ed;
+  color: var(--text2);
 }
 
 @media (max-width: 1024px) {
